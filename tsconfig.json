@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": [
+      "es2022",
+      "dom",
+      "dom.iterable"
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "types": [
+      "node",
+      "vite/client"
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "isolatedModules": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": false,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts"
+  ]
+}
