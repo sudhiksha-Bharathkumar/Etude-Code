@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero small">
+  <p class="label"><span class="sig">//</span> {{ cat.label|upper }}</p>
+  <h1>{{ cat.title }}</h1>
+  <p class="lede">{{ cat.promise }}</p>
+</section>
+<section>
+  {% if posts %}
+  <div class="grid">{% for p in posts %}{% include "_card.html" %}{% endfor %}</div>
+  {% else %}<p>Nothing here yet.</p>{% endif %}
+</section>
+{% endblock %}

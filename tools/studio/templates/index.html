@@ -28,6 +28,10 @@
             <td>{{ post.updated_at }}</td>
             <td>
                 <a href="{{ url_for('edit', id=post.id) }}" class="btn btn-sm btn-outline-primary">Edit</a>
+                <form action="{{ url_for('delete', id=post.id) }}" method="POST" class="d-inline"
+                      onsubmit="return confirm('Delete this post from the database?')">
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                </form>
             </td>
         </tr>
         {% else %}

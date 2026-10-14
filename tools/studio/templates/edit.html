@@ -9,15 +9,19 @@
             <input type="text" name="title" class="form-control" value="{{ post.title if post else '' }}" required>
         </div>
         <div class="col-md-6">
-            <label class="form-label">Slug</label>
-            <input type="text" name="slug" class="form-control" value="{{ post.slug if post else '' }}" required>
+            <label class="form-label">Slug <small class="text-muted">(blank = from title)</small></label>
+            <input type="text" name="slug" class="form-control font-monospace" value="{{ post.slug if post else '' }}">
         </div>
     </div>
 
     <div class="row mb-3">
         <div class="col-md-6">
             <label class="form-label">Category</label>
-            <input type="text" name="category" class="form-control" value="{{ post.category if post else '' }}" required>
+            <select name="category" class="form-select">
+                {% for c in categories %}
+                <option value="{{ c }}" {{ 'selected' if post and post.category|lower == c }}>{{ c }}</option>
+                {% endfor %}
+            </select>
         </div>
         <div class="col-md-6">
             <label class="form-label">Status</label>
@@ -29,13 +33,34 @@
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Summary</label>
+        <label class="form-label">Summary <small class="text-muted">(used as the meta description)</small></label>
         <textarea name="summary" class="form-control" rows="2" required>{{ post.summary if post else '' }}</textarea>
     </div>
 
     <div class="mb-3">
+        <label class="form-label">Tags <small class="text-muted">(comma separated)</small></label>
+        <input type="text" name="tags" class="form-control" value="{{ post.tags if post else '' }}">
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="form-label">Cover <small class="text-muted">(16:9, e.g. /covers/my-post.jpg)</small></label>
+            <input type="text" name="cover" class="form-control font-monospace" value="{{ post.cover if post else '' }}">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Pin image <small class="text-muted">(2:3, e.g. /pins/my-post.jpg)</small></label>
+            <input type="text" name="pin" class="form-control font-monospace" value="{{ post.pin if post else '' }}">
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Pin description</label>
+        <textarea name="pin_description" class="form-control" rows="2">{{ post.pin_description if post else '' }}</textarea>
+    </div>
+
+    <div class="mb-3">
         <label class="form-label">Content (Markdown)</label>
-        <textarea name="content" class="form-control font-monospace" rows="12" required>{{ post.content if post else '' }}</textarea>
+        <textarea name="content" class="form-control font-monospace" rows="16" required>{{ post.content if post else '' }}</textarea>
     </div>
 
     <button type="submit" class="btn btn-primary">Save Post</button>

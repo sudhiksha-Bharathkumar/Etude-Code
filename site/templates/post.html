@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="post">
+  <p class="label"><a href="/{{ cat.slug }}/"><span class="sig">//</span> {{ cat.label|upper }}</a></p>
+  <h1>{{ post.title }}</h1>
+  <p class="meta">{{ post.date_pretty }} · {{ post.minutes }} min read</p>
+  {% if post.tags %}<p class="tags">{% for t in post.tags %}<span class="tag">{{ t }}</span>{% endfor %}</p>{% endif %}
+  {% if post.cover %}
+  <figure class="cover">
+    <img src="{{ post.cover }}" alt="{{ post.title }}">
+    <a class="save" href="{{ save_url }}" target="_blank" rel="noopener">Save</a>
+  </figure>
+  {% endif %}
+  <div class="body">{{ post.html|safe }}</div>
+
+  {% if post.pin %}
+  <aside class="pincard">
+    <img src="{{ post.pin }}" alt="{{ post.pin_description }}" loading="lazy">
+    <div>
+      <p class="label"><span class="sig">//</span> SAVE THIS GUIDE</p>
+      <p>{{ post.pin_description }}</p>
+      <a class="btn dark" href="{{ save_url }}" target="_blank" rel="noopener">Save to Pinterest</a>
+    </div>
+  </aside>
+  {% endif %}
+
+  {% if next_post %}
+  <p class="next"><span class="label"><span class="sig">//</span> NEXT</span><br>
+    <a href="{{ next_post.path }}">{{ next_post.title }} →</a></p>
+  {% endif %}
+</article>
+{% endblock %}

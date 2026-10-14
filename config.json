@@ -1,0 +1,26 @@
+{
+  "site_name": "Etude & Code",
+  "site_url": "https://etudeandcode.netlify.app",
+  "description": "Electronics projects, dropshipping and courses, written with steps and numbers instead of hype.",
+  "pinterest_verify": "",
+  "categories": [
+    {
+      "slug": "electronics",
+      "label": "Electronics",
+      "title": "Electronics projects",
+      "promise": "Breadboard builds with wiring, firmware and parts lists that work the first time."
+    },
+    {
+      "slug": "dropshipping",
+      "label": "Dropshipping",
+      "title": "Dropshipping",
+      "promise": "Products, suppliers and customers, with real numbers in INR and USD."
+    },
+    {
+      "slug": "courses",
+      "label": "Courses",
+      "title": "Courses",
+      "promise": "Building, reselling and selling courses, step by step."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+[build]
+  command = "pip install -r site/requirements.txt && python site/build.py"
+  publish = "dist"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+
+[[redirects]]
+  from = "/project-setups"
+  to = "/electronics/"
+  status = 301

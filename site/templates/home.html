@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <p class="label"><span class="sig">//</span> WORKBENCH</p>
+  <h1>Practice, <em>compiled.</em></h1>
+  <p class="lede">{{ site.description }}</p>
+  <div class="btns">
+    <a class="btn dark" href="/electronics/">Read the builds</a>
+    <a class="btn" href="/about/">About</a>
+  </div>
+</section>
+
+<section>
+  <p class="label"><span class="sig">//</span> TOPICS</p>
+  <div class="grid">
+  {% for c in cats %}
+    <a class="card" href="/{{ c.slug }}/">
+      <span class="num">0{{ loop.index }}</span>
+      <h3>{{ c.title }}</h3>
+      <p>{{ c.promise }}</p>
+    </a>
+  {% endfor %}
+  </div>
+</section>
+
+<section>
+  <p class="label"><span class="sig">//</span> LATEST</p>
+  {% if posts %}
+  <div class="grid">{% for p in posts %}{% include "_card.html" %}{% endfor %}</div>
+  {% else %}<p>No posts yet.</p>{% endif %}
+</section>
+{% endblock %}
